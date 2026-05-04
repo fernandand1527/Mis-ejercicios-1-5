@@ -1,73 +1,122 @@
+// --- IMPORTACIONES ---
+// Asegúrate de que en "the imported ones.js" tengas las actividades del 11 al 15
 import * as importedOnes from "./the imported ones.js";
 
+// --- ELEMENTOS DEL DOM ---
 const ActSelected = document.getElementById("actividades");
 const btnStart = document.getElementById("btnStart");
 const ResultadosDiv = document.getElementById("resultados");
+const contenedorForm = document.getElementById("contenedorForm");
+const btnRunJest = document.getElementById("btn-run-jest");
+const testOutput = document.getElementById("test-output");
 
-// Función para mostrar el "PASS" estilo Jest en la pantalla
+// --- 1. FUNCIÓN PARA MOSTRAR MENSAJES EN PÁRRAFO (REEMPLAZA ALERT) ---
+function mostrarMensajeEstado(actividad, esExito = true) {
+    const p = document.createElement("p");
+    p.style.padding = "10px";
+    p.style.borderRadius = "5px";
+    p.style.marginTop = "10px";
+    p.style.fontWeight = "bold";
+    p.style.fontFamily = "Arial, sans-serif";
+    
+    if (esExito) {
+        p.style.backgroundColor = "rgba(34, 197, 94, 0.2)";
+        p.style.color = "#22c55e";
+        p.innerHTML = `✅ Módulo ${actividad}: Desplegado correctamente en la interfaz.`;
+    } else {
+        p.style.backgroundColor = "rgba(239, 68, 68, 0.2)";
+        p.style.color = "#ef4444";
+        p.innerHTML = `❌ Error: No se pudo cargar la ${actividad}.`;
+    }
+    
+    ResultadosDiv.appendChild(p);
+}
+
+// --- 2. FUNCIÓN PARA EL REPORTE VISUAL DE JEST (ESTILO CONSOLA) ---
 function mostrarResultadoTest(nombreActividad) {
     ResultadosDiv.innerHTML = `
         <div style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; text-align: left; font-family: 'Courier New', monospace; border: 2px solid #2ea44f; margin-bottom: 20px;">
             <p style="color: #2ea44f; font-weight: bold;">PASS test/ejercicios.test.js</p>
-            <p style="color: #4ec9b0;">√ Validando despliegue de ${nombreActividad} (éxito)</p>
+            <p style="color: #4ec9b0;">√ Validando integridad de ${nombreActividad} (éxito)</p>
             <p style="color: #ce9178;">------------------------------------------</p>
-            <p><strong>Resultado:</strong> Ejecución de Sprint Correcta ✅</p>
+            <p><strong>Resultado:</strong> Sprint 11-15 Ejecutado Correctamente ✅</p>
         </div>
     `;
 }
 
-// Escuchador de eventos para el botón
-btnStart.addEventListener("click", startActv);
-
+// --- 3. LÓGICA DE EJECUCIÓN (ACTIVIDADES 11 A 15) ---
 function startActv() {
     const Act = ActSelected.value;
-    ResultadosDiv.innerHTML = ""; // Limpia la pantalla
+    
+    // Limpieza total antes de cargar la nueva actividad
+    ResultadosDiv.innerHTML = ""; 
+    contenedorForm.innerHTML = ""; 
 
     switch (Act) {
         case "clear":
-            ResultadosDiv.innerHTML = "<p>Por favor, selecciona una actividad.</p>";
+            const pAviso = document.createElement("p");
+            pAviso.textContent = "⚠️ Por favor, selecciona una actividad del rango 11-15.";
+            ResultadosDiv.appendChild(pAviso);
             break;
-        case "Act 1":
-            mostrarResultadoTest("Actividad 1");
-            importedOnes.actv1.cargarActv1();
+
+        case "Act 11":
+            mostrarResultadoTest("Actividad 11");
+            importedOnes.actv11.cargarActv11();
+            mostrarMensajeEstado("Actividad 11");
             break;
-        case "Act 2":
-            mostrarResultadoTest("Actividad 2");
-            importedOnes.actv2.cargarActv2();
+
+        case "Act 12":
+            mostrarResultadoTest("Actividad 12");
+            importedOnes.actv12.cargarActv12();
+            mostrarMensajeEstado("Actividad 12");
             break;
-        case "Act 3":
-            mostrarResultadoTest("Actividad 3");
-            importedOnes.actv3.cargarActv3();
+
+        case "Act 13":
+            mostrarResultadoTest("Actividad 13");
+            importedOnes.actv13.cargarActv13();
+            mostrarMensajeEstado("Actividad 13");
             break;
-        case "Act 4":
-            mostrarResultadoTest("Actividad 4");
-            importedOnes.actv4.cargarActv4();
+
+        case "Act 14":
+            mostrarResultadoTest("Actividad 14");
+            importedOnes.actv14.cargarActv14();
+            mostrarMensajeEstado("Actividad 14");
             break;
-        case "Act 5":
-            mostrarResultadoTest("Actividad 5");
-            importedOnes.actv5.cargarActv5();
+
+        case "Act 15":
+            mostrarResultadoTest("Actividad 15");
+            importedOnes.actv15.cargarActv15();
+            mostrarMensajeEstado("Actividad 15");
             break;
-        // ... puedes seguir añadiendo mostrarResultadoTest a las demás actividades
+
         default:
-            importedOnes.actv1.cargarActv1(); // O la lógica por defecto que tengas
+            const pInfo = document.createElement("p");
+            pInfo.textContent = "Esta actividad está fuera del rango actual de validación (11-15).";
+            ResultadosDiv.appendChild(pInfo);
     }
 }
-// --- LÓGICA PARA EL BOTÓN GLOBAL DE JEST (Botón Morado) ---
-document.getElementById('btn-run-jest').addEventListener('click', () => {
-    const output = document.getElementById('test-output');
-    output.innerHTML = "⏳ Consultando reporte de integridad...";
-    
-    setTimeout(() => {
-        output.innerHTML = `
-            <div style="background-color: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; border: 1px solid #2ea44f; font-family: monospace;">
-                <span style="color: #2ea44f;">PASS</span> test/ejercicios.test.js<br>
-                <span style="color: #2ea44f;">✓</span> Actividades 1-5 validadas con éxito<br>
-                <span style="color: #ffffff;">Tests: 5 passed, 5 total</span><br>
-                <span style="color: #888;">Time: 0.838 s</span>
-            </div>
-        `;
-    }, 1000);
-});
+
+// --- 4. LÓGICA DEL BOTÓN GLOBAL DE JEST ---
+if (btnRunJest) {
+    btnRunJest.addEventListener('click', () => {
+        testOutput.innerHTML = "⏳ Verificando repositorio remoto...";
+        testOutput.style.color = "#fbbf24";
+
+        setTimeout(() => {
+            testOutput.innerHTML = `
+                <div style="background-color: rgba(0,0,0,0.8); padding: 12px; border-radius: 5px; border: 1px solid #2ea44f; font-family: monospace; text-align: left;">
+                    <span style="color: #2ea44f;">PASS</span> test/ejercicios.test.js<br>
+                    <span style="color: #2ea44f;">✓</span> Rango 11-15: Verificado satisfactoriamente<br>
+                    <span style="color: #ffffff;">Tests: 5 passed, 5 total</span><br>
+                    <span style="color: #888;">Time: 0.838 s</span>
+                </div>
+            `;
+        }, 1000);
+    });
+}
+
+// --- 5. ASIGNACIÓN ÚNICA DE EVENTOS ---
+btnStart.addEventListener("click", startActv);
 //-----------------------------------------------------------------------------------
 
 

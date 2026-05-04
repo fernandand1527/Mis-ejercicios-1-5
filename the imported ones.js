@@ -1,35 +1,8 @@
-// --- IMPORTACIONES ---
-import * as examen from './pages/Evaluacion/eval.js';
-import * as vectores from './pages/vectores/Actv Vectores.js';
+// IMPORTANTE: Asegúrate de que el nombre coincida con image_58d945.png
+import * as actv11 from "./pages/actv 11/ejercicio 11.js";
+import * as actv12 from "./pages/actv 12/ejercicio 12.js";
+import * as actv13 from "./pages/actv 13/ejercicio 13.js";
+import * as actv14 from "./pages/actv 14/ejercicio 14.js";
+import * as actv15 from "./pages/actv 15/ejercicio 15.js";
 
-import * as actv1 from './pages/actv 1/ejercicio 1.js';
-import * as actv2 from './pages/actv 2/ejercicio 2.js';
-import * as actv3 from './pages/actv 3/ejercicio 3.js';
-import * as actv4 from './pages/actv 4/ejercicio 4.js';
-import * as actv5 from './pages/actv 5/ejercicio 5.js';
-// ... agrega las demás importaciones (actv6 a actv30) aquí
-
-// --- EXPORTACIÓN PARA EL NAVEGADOR (ESM) ---
-export {
-    examen,
-    vectores,
-    actv1,
-    actv2,
-    actv3,
-    actv4,
-    actv5
-    // Agrega aquí las demás según las importes
-};
-
-// --- PUENTE PARA JEST (CommonJS) ---
-// Este bloque solo se ejecuta cuando corres 'npm test' en la terminal
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { 
-        actv1, 
-        actv2, 
-        actv3, 
-        actv4, 
-        actv5 
-    };
-}
-
+export { actv11, actv12, actv13, actv14, actv15 };

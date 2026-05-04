@@ -146,7 +146,27 @@
       "command": "git push origin fernanda_1-5",
       "timestamp": 1777906363313,
       "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git add .",
+      "timestamp": 1777907138115,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git commit -m \"Individual: Sprint 1 finalizado con reportes de prueba\"",
+      "timestamp": 1777907189809,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git push origin fernanda_1-5",
+      "timestamp": 1777907205181,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm test",
+      "timestamp": 1777909504092,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
     }
   ],
-  "lastUpdated": 1777906363313
+  "lastUpdated": 1777909504092
 }
