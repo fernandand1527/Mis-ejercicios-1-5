@@ -41,7 +41,37 @@
       "command": "git checkout -b fernanda_1-5",
       "timestamp": 1777901690411,
       "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git add .",
+      "timestamp": 1777901722624,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git commit -m \"Individual: Node modules y jest configurados\"",
+      "timestamp": 1777901799477,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git push origin master",
+      "timestamp": 1777901815772,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git push origin fernanda_1-5",
+      "timestamp": 1777901896481,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm",
+      "timestamp": 1777902457228,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm test",
+      "timestamp": 1777902464678,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
     }
   ],
-  "lastUpdated": 1777901690411
+  "lastUpdated": 1777902464678
 }
