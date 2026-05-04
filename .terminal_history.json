@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "workspacePath": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5",
+  "entries": [
+    {
+      "command": "npm init -y",
+      "timestamp": 1777900594318,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm install --save-dev jest",
+      "timestamp": 1777900654730,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm test",
+      "timestamp": 1777900807457,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git init",
+      "timestamp": 1777901061848,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git remote add origin https://github.com/fernandand1527/Mis-ejercicios-1-5.git",
+      "timestamp": 1777901141091,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "pm test",
+      "timestamp": 1777901621194,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "npm test",
+      "timestamp": 1777901628876,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    },
+    {
+      "command": "git checkout -b fernanda_1-5",
+      "timestamp": 1777901690411,
+      "cwd": "c:\\ADSO\\DESPLIEGUE_EJERCICIOS1-5"
+    }
+  ],
+  "lastUpdated": 1777901690411
+}

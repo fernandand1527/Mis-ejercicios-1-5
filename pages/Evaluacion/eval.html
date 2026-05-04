@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Feliz Navidad</title>
+</head>
+
+<body background="../../images/Fondo 1.png" text="white" >
+    <header>
+        <h1>Feliz Navidad</h1>
+        <small>Selecciona tus opciones para la celebración</small>
+    </header>
+
+<font face="Calibri">
+
+<select id="opciones"
+
+    <form id="festividadesForm">
+        <div>
+            <div>
+                <div>
+                    <fieldset>
+                        <legend>Alimentos</legend>
+                        <label for="alimentos">Alimentos</label>
+                        <select id="alimentos" name="alimentos">
+                            <option value="">--seleccione una opción--</option>
+                            <option value="natilla">Natilla</option>
+                            <option value="bunuelos">Buñuelos</option>
+                            <option value="empanadas">Empanadas</option>
+                            <option value="lechona">Lechona</option>
+                        </select>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+
+        <fieldset>
+            <legend>Festividades</legend>
+            <div aria-label="Festividades" style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <label style="display:flex; align-items:center; gap:8px;">
+                        <input type="checkbox" id="velitas" name="festividades" value="velitas"> Velitas
+                    </label>
+                    <div style="display:flex; flex-direction:column;">
+                        <label for="cantidadVelitas">Cantidad</label>
+                        <input type="number" id="cantidadVelitas" min="0" placeholder="0">
+                    </div>
+                </div>
+                <label><input type="checkbox" id="25dic" name="festividades" value="25-diciembre"> 25 de
+                    Diciembre</label>
+                <label><input type="checkbox" id="31dic" name="festividades" value="31-diciembre"> 31 de
+                    Diciembre</label>
+            </div>
+        </fieldset>
+
+
+        <div>
+            <fieldset>
+                <legend>Regalos</legend>
+                <div role="radiogroup" aria-label="Regalos" style="display:flex; flex-direction:column; gap:12px;">
+
+
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <label style="display:flex; align-items:center; gap:8px;">
+                            <input type="radio" name="regalos" value="ropa"> Ropa
+                        </label>
+                        <div style="display:flex; flex-direction:column;">
+                            <label for="cantidadRopa">Cantidad</label>
+                            <input type="number" id="cantidadRopa" min="0" placeholder="0">
+                        </div>
+                    </div>
+
+
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <label style="display:flex; align-items:center; gap:8px;">
+                            <input type="radio" name="regalos" value="juegos"> Juegos
+                        </label>
+                        <div style="display:flex; flex-direction:column;">
+                            <label for="cantidadJuegos">Cantidad</label>
+                            <input type="number" id="cantidadJuegos" min="0" placeholder="0">
+                        </div>
+                    </div>
+
+
+                    <label><input type="radio" name="regalos" value="otro"> Otro</label>
+
+
+                </div>
+            </fieldset>
+        </div>
+
+        <br><br>
+        <button type="button" id="mostrar" onclick="Figueroa()">Ejecuar Daniel</button>
+        <br><br>
+        <button type="button" id="mostrar1" onclick="Lopez()">Ejecutar Andres</button>
+        <br><br>
+        <button type="button" id="mostrar2" onclick="Hector()">Ejecutar Maricel</button>
+    </form>
+
+    <div id="vectorVelitas"></div>
+</font>
+
+    <script type="module" src="eval.js"></script>
+
+
+
