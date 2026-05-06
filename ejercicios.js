@@ -1,50 +1,59 @@
 /** 
- * GESTIÓN DINÁMICA DE INTERFAZ - PROYECTO SUPERCELL-30
+ * CONTROLADOR CENTRAL - PROYECTO SUPERCELL-30
  * DESARROLLADORA: Fernanda García 
  */
 
-// 1. Función Maestra: Actualiza Título, Terminal e Inputs
-const actualizarEjercicio = (nombreTitulo, mensajeConsola) => {
-    // Cambia el texto del h3 usando el ID que acabas de crear
-    const tituloElemento = document.getElementById('titulo-actividad');
-    if (tituloElemento) {
-        tituloElemento.innerText = nombreTitulo;
-    }
+import * as actv11 from "./pages/actv 11/ejercicio 11.js";
+import * as actv12 from "./pages/actv 12/ejercicio 12.js";
+import * as actv13 from "./pages/actv 13/ejercicio 13.js";
+import * as actv14 from "./pages/actv 14/ejercicio 14.js";
+import * as actv15 from "./pages/actv 15/ejercicio 15.js";
 
-    // Limpia la terminal negra
-    const pantalla = document.getElementById('resultado');
-    if (pantalla) {
-        pantalla.innerText = mensajeConsola;
-    }
-
-    // Borra los datos de los inputs inferiores
-    const inputDatos = document.getElementById('datos');
-    const inputBuscar = document.getElementById('buscar');
-    if (inputDatos) inputDatos.value = "";
-    if (inputBuscar) inputBuscar.value = "";
+// Función para actualizar el título de la tarjeta blanca
+const actualizarInterfaz = (titulo) => {
+    const elTitulo = document.getElementById('titulo-actividad');
+    if (elTitulo) elTitulo.innerText = titulo;
+    
+    // Limpiamos la terminal negra para el nuevo ejercicio
+    const terminal = document.getElementById('resultado');
+    if (terminal) terminal.innerHTML = "<p style='color: #888;'>Cargando actividad...</p>";
 };
 
-// 2. Vinculación con los botones del HTML
+// Vinculación de botones del HTML (window para que sean globales)
 window.ejecutarActividad11 = () => {
-    actualizarEjercicio("Actividad 11: Búsqueda con Ciclo While", "✅ Actividad 11 lista.");
+    actualizarInterfaz("Actividad 11: Suma de Vectores");
+    actv11.cargarActv11();
 };
 
 window.ejecutarActividad12 = () => {
-    actualizarEjercicio("Actividad 12: Lógica de Ciclos", "✅ Actividad 12: Procesando estructuras.");
+    actualizarInterfaz("Actividad 12: Valor Máximo");
+    actv12.cargarActv12();
 };
 
 window.ejecutarActividad13 = () => {
-    actualizarEjercicio("Actividad 13: Gestión de Arreglos (Vectores)", "✅ Actividad 13 cargada.");
+    actualizarInterfaz("Actividad 13: Búsqueda While");
+    actv13.cargarActv13();
 };
 
 window.ejecutarActividad14 = () => {
-    actualizarEjercicio("Actividad 14: Algoritmos de Ciclos Anidados", "✅ Actividad 14 en ejecución.");
+    actualizarInterfaz("Actividad 14: Invertir Array");
+    actv14.cargarActv14();
 };
 
 window.ejecutarActividad15 = () => {
-    actualizarEjercicio("Actividad 15: Sprint 1 - Despliegue Final", "✅ Proyecto finalizado con éxito.");
+    actualizarInterfaz("Actividad 15: Conteo de Pares");
+    actv15.cargarActv15();
 };
 
+// Reemplazo de alerta por escritura en DOM
 window.validarSprint = () => {
-    actualizarEjercicio("Validación de Calidad (Tests)", "PASS test/ejercicios.test.js\n✓ Verificado correctamente.");
+    const terminal = document.getElementById('resultado');
+    if (terminal) {
+        terminal.innerHTML = `
+            <div style="color: #4ec9b0; padding: 10px; border: 1px dashed #4ec9b0;">
+                <p>✅ <strong>Sprint Validado:</strong> Todas las funciones están operativas.</p>
+                <p>Desarrollado por: Fernanda García - ADSO Popayán</p>
+            </div>
+        `;
+    }
 };

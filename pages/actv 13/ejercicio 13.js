@@ -1,74 +1,69 @@
+/**
+ * ACTIVIDAD 13: BÚSQUEDA CON WHILE
+ * DESARROLLADORA: Fernanda García 
+ */
+
 export function cargarActv13() {
-    const contenedorPrincipal = document.getElementById("resultados");
+    const contenedorPrincipal = document.getElementById("resultado");
+    if (!contenedorPrincipal) return;
 
     contenedorPrincipal.innerHTML = "";
 
+    // Inyectamos la interfaz con un ID de salida único (res13)
     contenedorPrincipal.insertAdjacentHTML("beforeend", `
-        <br><br>
+        <div style="padding: 15px; border: 1px solid #4ec9b0; border-radius: 8px;">
+            <hr width="60%">
+            <h3> Búsqueda en array con ciclo while </h3>
+            <hr width="60%">
+            <br>
+            <label for="dataInput">Ingresa datos separados por coma:</label><br>
+            <input type="text" id="dataInput" placeholder="Ej: manzana, amarillo, 75" style="width: 80%;"><br><br>
 
-        <hr width="60%">
-        <h3> Búsqueda en array con ciclo while </h3>
-        <hr width="60%">
+            <label for="searchInput">Valor a buscar:</label><br>
+            <input type="text" id="searchInput" placeholder="Ej: Empanadas" style="width: 80%;"><br><br>
 
-        <br><br>
+            <button id="btnBuscar" style="background-color: #2ea44f; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                Buscar elemento
+            </button>
 
-        <label for="dataInput">Ingresa datos separados por coma:</label>
-        <input type="text" id="dataInput" placeholder="Ej: manzana, amarillo, 75">
-
-        <br><br>
-
-        <label for="searchInput">Valor a buscar:</label>
-        <input type="text" id="searchInput" placeholder="Ej: Empanadas ">
-
-        <br><br>
-
-        <button id="btnBuscar">Buscar elemento</button>
-
-        <br><br>
-        <p> (Recuarda que se empieza a contar desde 0) </p>
-        <p id="resultado"></p>
-        <br><br>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #888;"> (Recuerda que se empieza a contar desde 0) </p>
+            <!-- ID ÚNICO PARA EL RESULTADO -->
+            <p id="res13" style="color: #fbbf24; font-weight: bold;"></p>
+        </div>
     `);
 
- document.getElementById("btnBuscar").addEventListener("click", procesarBusqueda);
+    document.getElementById("btnBuscar").addEventListener("click", procesarBusqueda);
 }
 
-//---------------------------------------------------------------------------------------------------------------------------
 export function searchInArray(dataArray, searchValue) {
     let index = 0;
-
     while (index < dataArray.length) {
         if (dataArray[index] === searchValue) {
-            return index;  // Encontrado → retorna la posición
+            return index; 
         }
         index++;
     }
-
-    return -1; // Si nunca lo encontró
+    return -1;
 }
 
-//----------------------------------------------------------------------------------------------------------------------------
 export function procesarBusqueda() {
     const dataInput = document.getElementById("dataInput").value;
     const searchValue = document.getElementById("searchInput").value.trim();
-    const result = document.getElementById("resultado");
-
+    const displayResultado = document.getElementById("res13");
 
     if (!dataInput.trim() || !searchValue) {
-        result.innerHTML = "Por favor complete ambos campos.";
+        displayResultado.innerHTML = "⚠️ Por favor complete ambos campos.";
+        displayResultado.style.color = "red";
         return;
     }
 
-    // Convertir texto a array
     const dataArray = dataInput.split(",").map(item => item.trim());
- //------------------------------------------------------------------------------------------------------------
-    // Ejecutar búsqueda
     const position = searchInArray(dataArray, searchValue);
-//------------------------------------------------------------------------------------------------------------
-    // Mostrar resultado
+
+    displayResultado.style.color = "#fbbf24";
     if (position !== -1) {
-        result.innerHTML = `Elemento encontrado en la posición: ${position}`;
+        displayResultado.innerHTML = `✅ Elemento encontrado en la posición: ${position}`;
     } else {
-        result.innerHTML = `Elemento <b>${searchValue}</b> no se encuentra en el array.`;
+        displayResultado.innerHTML = `❌ Elemento <b>${searchValue}</b> no se encuentra en el array.`;
     }
 }
