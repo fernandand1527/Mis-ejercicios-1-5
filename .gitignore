@@ -8,7 +8,6 @@ Thumbs.db
 .env
 
 # Logs y archivos temporales de ejecución
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+node_modules/
+pages/node_modules/
 .terminal_history.json
