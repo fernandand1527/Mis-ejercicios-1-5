@@ -3,59 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios 1-5 | Coderider</title>
-    <!-- Vinculamos el CSS que crearemos -->
-    <link rel="stylesheet" href="./public/styles.css">
+    <title>Actividades ADSO - Fernanda García</title>
+    <!-- Vinculamos el archivo CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <header>
-            <h1>Actividades del 2do. Trimestre</h1>
-            <h2>Algoritmia: JavaScript</h2>
-        </header>
 
-        <section class="dashboard">
-            <p class="instruccion">Por favor, seleccione la actividad que desea ejecutar:</p>
-            
-            <!-- SUSTITUCIÓN DEL SELECT POR BOTONERA -->
-            <div class="grid-actividades">
-                <button class="btn-card special" onclick="startActv('Exam')">E X A M E N</button>
-                <button class="btn-card special" onclick="startActv('Vect')">Vectores</button>
+    <header>
+        <h1>Actividades del 2do. Trimestre</h1>
+        <h2>Algoritmia: JavaScript</h2>
+    </header>
+
+    <main>
+        <section class="card">
+            <p>Por favor, seleccione la actividad que desea ejecutar:</p>
+            <div class="button-group">
+                <button>E X A M E N</button>
+                <button>Vectores</button>
+                <button>Actividad 11</button>
+                <button>Actividad 12</button>
+                <button>Actividad 13</button>
+                <button>Actividad 14</button>
+                <button>Actividad 15</button>
+                <button class="btn-jest">🧪 Validar Sprint 1 (Jest)</button>
+            </div>
+        </section>
+
+        <!-- Sección de la Consola/Terminal -->
+        <section class="console-output">
+            <pre>
+PASS  test/ejercicios.test.js
+✓ Rango 11-15: Verificado satisfactoriamente
+Tests: 5 passed, 5 total
+Time: 0.838 s
+            </pre>
+        </section>
+
+        <section class="card">
+            <h3>Búsqueda en array con ciclo while</h3>
+            <div class="input-group">
+                <label>Ingresa datos separados por coma:</label>
+                <input type="text" placeholder="15,17,21">
                 
-                <!-- Botones de actividades 11-15 -->
-                <button class="btn-card" onclick="startActv('Act 11')">Actividad 11</button>
-                <button class="btn-card" onclick="startActv('Act 12')">Actividad 12</button>
-                <button class="btn-card" onclick="startActv('Act 13')">Actividad 13</button>
-                <button class="btn-card" onclick="startActv('Act 14')">Actividad 14</button>
-                <button class="btn-card" onclick="startActv('Act 15')">Actividad 15</button>
+                <label>Valor a buscar:</label>
+                <input type="number" placeholder="15">
+                
+                <button class="btn-search">Buscar elemento</button>
             </div>
-
-            <div class="test-section">
-                <button id="btn-run-jest" class="btn-jest">
-                    🧪 Validar Sprint 1 (Jest)
-                </button>
-                <p id="test-output"></p>
-            </div>
+            <small>(Recuerda que se empieza a contar desde 0)</small>
         </section>
+    </main>
 
-        <section class="output-section">
-            <!-- Aquí se inyectará el mensaje PASS de Jest -->
-            <div class="result" id="resultados"></div>
-            
-            <div id="contenedorForm">
-                <!-- Espacio para los formularios de las actividades -->
-                <p class="placeholder-text">Esperando ejecución...</p>
-            </div>
-        </section>
-
-        <footer>
-            <div class="decoration-lines">
-                <hr width="100%"><hr width="75%"><hr width="50%"><hr width="25%"><hr width="5%">
-            </div>
-        </footer>
-    </div>
-
-    <!-- Script principal -->
-    <script type="module" src="./The Ejecutor.js"></script>
 </body>
 </html>
