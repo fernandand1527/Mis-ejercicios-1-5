@@ -1,41 +1,37 @@
 // --- IMPORTACIONES ---
-// Asegúrate de que en "the imported ones.js" tengas las actividades del 11 al 15
 import * as importedOnes from "./the imported ones.js";
 
 // --- ELEMENTOS DEL DOM ---
-const ActSelected = document.getElementById("actividades");
-const btnStart = document.getElementById("btnStart");
 const ResultadosDiv = document.getElementById("resultados");
 const contenedorForm = document.getElementById("contenedorForm");
 const btnRunJest = document.getElementById("btn-run-jest");
 const testOutput = document.getElementById("test-output");
 
-// --- 1. FUNCIÓN PARA MOSTRAR MENSAJES EN PÁRRAFO (REEMPLAZA ALERT) ---
+// --- 1. FUNCIÓN DE MENSAJES ---
 function mostrarMensajeEstado(actividad, esExito = true) {
     const p = document.createElement("p");
+    p.className = "status-msg"; // Usaremos clases CSS para el estilo
     p.style.padding = "10px";
     p.style.borderRadius = "5px";
     p.style.marginTop = "10px";
     p.style.fontWeight = "bold";
-    p.style.fontFamily = "Arial, sans-serif";
     
     if (esExito) {
         p.style.backgroundColor = "rgba(34, 197, 94, 0.2)";
         p.style.color = "#22c55e";
-        p.innerHTML = `✅ Módulo ${actividad}: Desplegado correctamente en la interfaz.`;
+        p.innerHTML = `✅ Módulo ${actividad}: Desplegado correctamente.`;
     } else {
         p.style.backgroundColor = "rgba(239, 68, 68, 0.2)";
         p.style.color = "#ef4444";
         p.innerHTML = `❌ Error: No se pudo cargar la ${actividad}.`;
     }
-    
     ResultadosDiv.appendChild(p);
 }
 
-// --- 2. FUNCIÓN PARA EL REPORTE VISUAL DE JEST (ESTILO CONSOLA) ---
+// --- 2. REPORTE VISUAL DE JEST ---
 function mostrarResultadoTest(nombreActividad) {
     ResultadosDiv.innerHTML = `
-        <div style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; text-align: left; font-family: 'Courier New', monospace; border: 2px solid #2ea44f; margin-bottom: 20px;">
+        <div class="test-report" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; text-align: left; font-family: 'Courier New', monospace; border: 2px solid #2ea44f; margin-bottom: 20px;">
             <p style="color: #2ea44f; font-weight: bold;">PASS test/ejercicios.test.js</p>
             <p style="color: #4ec9b0;">√ Validando integridad de ${nombreActividad} (éxito)</p>
             <p style="color: #ce9178;">------------------------------------------</p>
@@ -44,21 +40,14 @@ function mostrarResultadoTest(nombreActividad) {
     `;
 }
 
-// --- 3. LÓGICA DE EJECUCIÓN (ACTIVIDADES 11 A 15) ---
-function startActv() {
-    const Act = ActSelected.value;
-    
-    // Limpieza total antes de cargar la nueva actividad
+// --- 3. LÓGICA DE EJECUCIÓN (MODIFICADA PARA BOTONES) ---
+// La asignamos a 'window' para que el HTML la vea
+window.startActv = function(Act) {
+    // Limpieza total
     ResultadosDiv.innerHTML = ""; 
     contenedorForm.innerHTML = ""; 
 
     switch (Act) {
-        case "clear":
-            const pAviso = document.createElement("p");
-            pAviso.textContent = "⚠️ Por favor, selecciona una actividad del rango 11-15.";
-            ResultadosDiv.appendChild(pAviso);
-            break;
-
         case "Act 11":
             mostrarResultadoTest("Actividad 11");
             importedOnes.actv11.cargarActv11();
@@ -89,14 +78,18 @@ function startActv() {
             mostrarMensajeEstado("Actividad 15");
             break;
 
+        case "Exam":
+            ResultadosDiv.innerHTML = "<h3>📝 Iniciando Examen...</h3>";
+            break;
+
         default:
             const pInfo = document.createElement("p");
-            pInfo.textContent = "Esta actividad está fuera del rango actual de validación (11-15).";
+            pInfo.textContent = "Actividad no reconocida.";
             ResultadosDiv.appendChild(pInfo);
     }
 }
 
-// --- 4. LÓGICA DEL BOTÓN GLOBAL DE JEST ---
+// --- 4. LÓGICA DEL BOTÓN JEST (Se mantiene igual) ---
 if (btnRunJest) {
     btnRunJest.addEventListener('click', () => {
         testOutput.innerHTML = "⏳ Verificando repositorio remoto...";
@@ -114,9 +107,6 @@ if (btnRunJest) {
         }, 1000);
     });
 }
-
-// --- 5. ASIGNACIÓN ÚNICA DE EVENTOS ---
-btnStart.addEventListener("click", startActv);
 //-----------------------------------------------------------------------------------
 
 

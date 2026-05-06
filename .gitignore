@@ -1,0 +1,14 @@
+# Dependencias (esta es la más importante para no subir miles de archivos)
+node_modules/
+
+# Archivos de sistema y configuración local
+.DS_Store
+Thumbs.db
+.vscode/
+.env
+
+# Logs y archivos temporales de ejecución
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.terminal_history.json
