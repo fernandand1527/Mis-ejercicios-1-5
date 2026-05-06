@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividades ADSO - Fernanda García</title>
-    <!-- Vinculamos el archivo CSS -->
+    <!-- Asegúrate de que el archivo CSS se llame exactamente style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,41 +18,40 @@
         <section class="card">
             <p>Por favor, seleccione la actividad que desea ejecutar:</p>
             <div class="button-group">
-                <button>E X A M E N</button>
-                <button>Vectores</button>
-                <button>Actividad 11</button>
-                <button>Actividad 12</button>
-                <button>Actividad 13</button>
-                <button>Actividad 14</button>
-                <button>Actividad 15</button>
-                <button class="btn-jest">🧪 Validar Sprint 1 (Jest)</button>
+                <!-- He añadido los eventos onclick. Asegúrate de que coincidan con tus funciones en JS -->
+                <button onclick="ejecutarActividad11()">Actividad 11</button>
+                <button onclick="ejecutarActividad12()">Actividad 12</button>
+                <button onclick="ejecutarActividad13()">Actividad 13</button>
+                <button onclick="ejecutarActividad14()">Actividad 14</button>
+                <button onclick="ejecutarActividad15()">Actividad 15</button>
+                <button class="btn-jest" onclick="validarSprint()">🧪 Validar test</button>
             </div>
         </section>
 
-        <!-- Sección de la Consola/Terminal -->
+        <!-- Esta es la terminal donde se verán los resultados -->
         <section class="console-output">
-            <pre>
-PASS  test/ejercicios.test.js
-✓ Rango 11-15: Verificado satisfactoriamente
-Tests: 5 passed, 5 total
-Time: 0.838 s
+            <pre id="resultado">
+// Los resultados de tus ejercicios aparecerán aquí...
             </pre>
         </section>
 
         <section class="card">
-            <h3>Búsqueda en array con ciclo while</h3>
+          <h3 id="titulo-actividad">Búsqueda en array con ciclo while</h3>
             <div class="input-group">
-                <label>Ingresa datos separados por coma:</label>
-                <input type="text" placeholder="15,17,21">
+                <label for="datos">Ingresa datos separados por coma:</label>
+                <input type="text" id="datos" placeholder="15,17,21">
                 
-                <label>Valor a buscar:</label>
-                <input type="number" placeholder="15">
+                <label for="buscar">Valor a buscar:</label>
+                <input type="number" id="buscar" placeholder="15">
                 
-                <button class="btn-search">Buscar elemento</button>
+                <!-- Función para la búsqueda específica de tu ejercicio -->
+                <button class="btn-search" onclick="buscarElemento()">Buscar elemento</button>
             </div>
             <small>(Recuerda que se empieza a contar desde 0)</small>
         </section>
     </main>
 
+    <!-- CRUCIAL: Vincula aquí tu archivo de lógica de JavaScript -->
+<script type="module" src="ejercicios.js"></script>
 </body>
 </html>
